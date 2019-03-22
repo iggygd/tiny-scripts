@@ -1,14 +1,11 @@
-def handle(key, vars):
+def handle(key, vars_):
     if key is not None:
-        if key == -203:
-            return True
-        elif key == -204:
-            return True
-        elif key == -205:
-            return True
-        elif key == -206:
-            return True
-        elif key == 13:
-            return True
+        try:
+            code = int(key.key_code)
+        except AttributeError:
+            code = None
+            
+        if code in (-203, -204, -205, -206, 13, 10, -300, 113, 81):
+            return code
         else:
-            print(key)
+            return False

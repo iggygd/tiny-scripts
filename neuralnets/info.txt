@@ -1,4 +1,6 @@
-Library Checklist / All MNIST classifiers written in different libraries should be the same neural net architecture, but may use different hardware (CPU, GPU) and algorithms.
+Library Checklist / All MNIST classifiers written in different libraries 
+should be the same neural net architecture, 
+but may use different hardware (CPU, GPU) and algorithms (loss, optimizers).
 =================
 numpy []
 Keras [Done]

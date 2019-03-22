@@ -8,6 +8,10 @@ HEADER = """ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM
 COPYRIGHT 2075-2077 ROBCO INDUSTRIES
 
 """
+def header(screen):
+    for i, text in enumerate(HEADER.split('\n')):
+        screen.centre(text, i, screen.COLOUR_GREEN, screen.A_BOLD)
+
 def wrap_text(text, screen):
     text = str(text)
 
@@ -22,16 +26,20 @@ def context_manager(screen, context, cur, vars, ev):
 
 def menu(screen, path, vars, ev):
     if ev == 13:
+        screen.clear()
+        header(screen)
         dirname, dirs, files = next(os.walk(path))
 
         listing = ['..']
         listing.extend(dirs)
         listing.extend(files)
-        path = f'{path}/{listing[vars["choice"]]}'
-        print(path)
-        vars['choice'] = 0
-        if not os.path.isdir(path):
-            return None, None
+        selected = f'{path}/{listing[vars["choice"]]}'
+        print(selected)
+        if os.path.isdir(selected):
+            vars['choice'] = 0
+            path = selected
+        else:
+            pass
 
     dirname, dirs, files = next(os.walk(path))
 
@@ -54,9 +62,9 @@ def menu(screen, path, vars, ev):
             screen.print_at(f'> {file}', 1, 6+i, screen.COLOUR_GREEN, screen.A_REVERSE)
         else:
             screen.print_at(f'> {file}', 1, 6+i, screen.COLOUR_GREEN)
-    return 'menu', path
+    return 'menu', os.path.abspath(path), True
 
-def demo(screen):
+def main(screen):
     updated = True
     context = 'menu'
     path = './'
@@ -65,13 +73,12 @@ def demo(screen):
 
     screen.clear()
     screen.set_title("RIUOS")
+    header(screen)
     while True:
         if updated:
-            for i, text in enumerate(HEADER.split('\n')):
-                screen.centre(text, i, screen.COLOUR_GREEN, screen.A_BOLD)
-
-            context, path = context_manager(screen, context, path, vars, ev)
-            screen.refresh()
+            context, path, refresh = context_manager(screen, context, path, vars, ev)
+            if refresh:
+                screen.refresh()
             updated = False
             
         ev = screen.get_key()
@@ -81,4 +88,4 @@ def demo(screen):
             updated = keys.handle(ev, vars)
 
 
-Screen.wrapper(demo)
+Screen.wrapper(main)

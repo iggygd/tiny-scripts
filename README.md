@@ -12,12 +12,12 @@ Fallout-like Terminal, I just wanted to test out a terminal ui library. Really l
 
 ![](https://giant.gfycat.com/GranularAccomplishedCrab.gif)
 
-# procedural_world/
+## procedural_world/
 Generates shapes, with each shape connected to neighbouring tiles. Uses an opensimplex generated heightmap, so a heightmap input could be made possible too.
 
 ![](https://i.imgur.com/33SH0hv.png)
 
-# infinite_world/
+## infinite_world/
 Really old test to try out an infinite world.
 
 ![](https://giant.gfycat.com/FastWhirlwindKoala.gif)

@@ -1,0 +1,3 @@
+pygame==1.9.4
+Pillow==5.4.1
+opensimplex==0.2

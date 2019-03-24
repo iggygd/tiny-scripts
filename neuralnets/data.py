@@ -40,8 +40,8 @@ class mnist():
         train_images, train_labels, test_images, test_labels = mnist.load()
 
         #Preprocessing
-        train_images = (train_images-127.5)/255.0
-        test_images = (test_images-127.5)/255.0
+        train_images = (train_images - 127.5) / 127.5
+        test_images = (test_images - 127.5) / 127.5
         train_labels, _ = mnist.OneHot(train_labels, outputs)
         test_labels, encoding = mnist.OneHot(test_labels, outputs)
 

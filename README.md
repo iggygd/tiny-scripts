@@ -3,7 +3,7 @@ Any scripts I make when I'm bored will be kept here.
 
 It's usually for when I don't have access to my project folder and I really just have to code something. But at times, ideas will just pop into my head and I have to code them before it goes away.
 
-If it has bugs... whoops. I don't really want to debug in my free time.
+If it has bugs... whoops. I might fix them eventually.
 ## neuralnets/
 Currently just a repo for creating a fully connected neural net for different libraries (numpy, tensorflow, keras, theano, caffe, pytorch). Doesn't have to be Python.
 

@@ -13,9 +13,9 @@ class ExternalTile():
         "Mountain Top": [Valley, Mountain Hill, Cliff])
     '''
     def __init__(self):
-        self.inside = InternalTile(self, exits) 
+        self.inside = InternalNode(self, exits) 
 
-class InternalTile():
+class InternalNode():
     '''
     Algorithm
     1. Randomly insert default locations for tile
@@ -29,3 +29,4 @@ class InternalTile():
         self.network = Network(exits)
 
 class Network():
+    pass

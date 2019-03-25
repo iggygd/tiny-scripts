@@ -10,7 +10,7 @@ Currently just a repo for creating a fully connected neural net for different li
 ## wstldterm/
 Fallout-like Terminal, I just wanted to test out a terminal ui library. Really limited.
 
-![](https://giant.gfycat.com/GranularAccomplishedCrab.gif)
+![](https://pages.gdoria.com/example.svg)
 
 ## procedural_world/
 Generates shapes, with each shape connected to neighbouring tiles. Uses an opensimplex generated heightmap, so a heightmap input could be made possible too.

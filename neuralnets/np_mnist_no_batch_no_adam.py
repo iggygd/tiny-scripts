@@ -72,7 +72,7 @@ input_size, output_size, train_images, train_labels, test_images, test_labels, e
 
 
 #Model
-lr = 0.7
+lr = 0.8
 hidden_size = 64 #Smaller than other libraries because CPU is only being used
 
 W1 = np.random.randn(hidden_size, input_size)
@@ -84,9 +84,9 @@ b3 = np.zeros((output_size, 1))
 
 model = (W1, b1, W2, b2, W3, b3)
 #Train
-epochs = 1000
-train_images = (train_images*0.5) + 0.5
-test_images = (test_images*0.5) + 0.5
+epochs = 1500
+#train_images = (train_images*0.5) + 0.5
+#test_images = (test_images*0.5) + 0.5
 
 for epoch in range(epochs):
     X = forward(train_images.T, *model)
@@ -103,41 +103,42 @@ print(classification_report(pred, true))
 
 ##Output
 '''
-Epoch: 0/1000; train_loss[8.493202661674912]
-Epoch: 1/1000; train_loss[5.473629628032126]
-Epoch: 2/1000; train_loss[4.28523171698634]
-Epoch: 3/1000; train_loss[3.2610651894420837]
-Epoch: 4/1000; train_loss[2.7969275465473316]
-Epoch: 5/1000; train_loss[2.5461041629669574]
+Epoch: 0/1500; train_loss[6.537634093642896]
+Epoch: 1/1500; train_loss[4.689940420482009]
+Epoch: 2/1500; train_loss[3.948826083142939]
+Epoch: 3/1500; train_loss[3.907261725349788]
+Epoch: 4/1500; train_loss[3.389550446678466]
+Epoch: 5/1500; train_loss[3.034952090847671]
 ...
 ...
-Epoch: 995/1000; train_loss[0.3462058771135897]
-Epoch: 996/1000; train_loss[0.34606155296457436]
-Epoch: 997/1000; train_loss[0.34591742162417966]
-Epoch: 998/1000; train_loss[0.34577348264248836]
-Epoch: 999/1000; train_loss[0.3456297355710629]
-[[ 936    0   19    7    4   17   20    2    7   13]
- [   0 1105    9    3    4    5    4   11    4    9]
- [   7    4  908   25    5   10   10   24   17    7]
- [   3    5   18  866    1   38    2    6   37   13]
- [   0    0   16    1  872   11   18   19   13   54]
- [  11    5    1   46    2  754   11    5   34   10]
- [   7    2   13    3   14   18  883    0    9    3]
- [   7    2   14   13    7    9    0  920   16   35]
- [   6   12   30   30    8   24    9    7  814   10]
- [   3    0    4   16   65    6    1   34   23  855]]
+Epoch: 1494/1500; train_loss[0.3385374465644127]
+Epoch: 1495/1500; train_loss[0.3384418437521467]
+Epoch: 1496/1500; train_loss[0.33834633077447707]
+Epoch: 1497/1500; train_loss[0.3382509074944209]
+Epoch: 1498/1500; train_loss[0.3381555737749712]
+Epoch: 1499/1500; train_loss[0.33806032947910003]
+[[ 935    0   17    8    1   20   18    3    5   11]
+ [   0 1101    2    1    2    3    4   18   14    5]
+ [   5    4  901   24    9    6   11   26   13    5]
+ [   4    4   21  864    2   43    1    4   36   14]
+ [   0    0   15    1  875    9   14   14   12   52]
+ [  18    2   10   46    1  750   17    2   32   12]
+ [   9    7   20    5   14   15  880    0   19    2]
+ [   3    2   13   16    7    8    2  922   10   43]
+ [   4   14   27   37    8   31    9    4  807   13]
+ [   2    1    6    8   63    7    2   35   26  852]]
               precision    recall  f1-score   support
 
-           0       0.96      0.91      0.93      1025
-           1       0.97      0.96      0.97      1154
-           2       0.88      0.89      0.89      1017
-           3       0.86      0.88      0.87       989
-           4       0.89      0.87      0.88      1004
-           5       0.85      0.86      0.85       879
-           6       0.92      0.93      0.92       952
-           7       0.89      0.90      0.90      1023
-           8       0.84      0.86      0.85       950
-           9       0.85      0.85      0.85      1007
+           0       0.95      0.92      0.94      1018
+           1       0.97      0.96      0.96      1150
+           2       0.87      0.90      0.89      1004
+           3       0.86      0.87      0.86       993
+           4       0.89      0.88      0.89       992
+           5       0.84      0.84      0.84       890
+           6       0.92      0.91      0.91       971
+           7       0.90      0.90      0.90      1026
+           8       0.83      0.85      0.84       954
+           9       0.84      0.85      0.85      1002
 
    micro avg       0.89      0.89      0.89     10000
    macro avg       0.89      0.89      0.89     10000

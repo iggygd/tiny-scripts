@@ -1,0 +1,3 @@
+Table this for now. Look to interface with PKMN Showdown so I
+don't have to build the entire Pokemon battle engine. With the
+additional advantage of working with PKMN Showdown right off the bat.

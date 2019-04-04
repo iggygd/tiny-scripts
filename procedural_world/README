@@ -1,0 +1,3 @@
+Generates shapes, with each shape connected to neighbouring tiles. Uses an opensimplex generated heightmap, so a heightmap input could be made possible too.
+
+![](https://i.imgur.com/33SH0hv.png)

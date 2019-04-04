@@ -7,7 +7,7 @@ class BasicTile():
     def __init__(self, rotatable, mirrorable, _, bytestring):
         self.rotatable = (int(rotatable) == 1)
         self.mirrorable = (int(mirrorable) == 1)
-        self.base = np.fromstring(bytestring, dtype=np.uint8).reshape(3,3)
+        self.base = np.fromstring(bytestring.encode('cp437'), dtype=np.uint8).reshape(3,3)
         if self.rotatable:
             self.rotations = tuple(np.rot90(self.base, i) for i in range(1,4))
         if self.mirrorable:
@@ -25,7 +25,7 @@ class BasicTile():
         return all
 
 def basic_enc(file):
-    with open(file, 'r') as file:
+    with open(file, 'r', encoding='cp437') as file:
         for chunk in iter(lambda: file.read(16), ""):
             params, chunk = chunk.split('\n',1)
             chunk = chunk.replace('\n','')
@@ -66,12 +66,10 @@ class Tile():
 def new_world(x, y):
     world = None
     while world is None:
-        try:
-            #Large sizes are very slow... algorithm could be better
-            #Try chaining small worlds next to each other
-            world = Container(x,y, 'basic')
-        except:
-            continue
+        #Large sizes are very slow... algorithm could be better
+        #Try chaining small worlds next to each other
+        world = Container(x,y, 'basic')
+
     tiles = []
     for i in world.tiles:
         a = []
@@ -87,13 +85,13 @@ def new_world(x, y):
 
 
 if __name__ == '__main__':
-    size = (9,16)
+    size = (128,128)
     #Large sizes are very slow... algorithm could be better
     #Try chaining small maps next to each other
     world, map_ = new_world(*size)
 
     import tcod
-    tcod.console_set_custom_font("terminal16x16_gs_ro.png", tcod.FONT_LAYOUT_ASCII_INROW)
+    tcod.console_set_custom_font("wanderlust.png", tcod.FONT_LAYOUT_ASCII_INROW)
     y, x = map_.shape
     tcod.console_init_root(x, y, 'Generator')
 

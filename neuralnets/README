@@ -5,3 +5,4 @@ but may use different hardware (CPU, GPU) and algorithms (loss, optimizers).
 numpy [Done]
 Keras [Done]
 Tensorflow [Done]
+Scikit-Learn [Done]
